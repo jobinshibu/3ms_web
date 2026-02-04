@@ -33,7 +33,7 @@ function AnimatedRoutes() {
         <Route path="/get-app" element={<GetApp />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-conditions" element={<TermsConditions />} />
-        <Route path="/src" element={<RefundPolicy />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
 
         {/* Deep Link Redirection Routes */}
         <Route path="/invite/*" element={<AppRedirect />} />
