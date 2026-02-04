@@ -7,7 +7,7 @@ const CTA = ({ showButton = true }) => {
             <div className="container">
                 <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', marginBottom: '20px', fontWeight: '700', lineHeight: '1.2' }}>Let’s Make Something Great<br />Work Together</h2>
                 <p style={{ fontSize: '1.1rem', color: '#999', marginBottom: '40px', maxWidth: '800px', lineHeight: '1.6' }}>
-                    We're here to collaborate and create solutions that matter. Together, we can bring ideas to life and simplify lives with 3MS.
+                    We're here to collaborate and create solutions that matter. Together, we can bring ideas to life and simplify lives with 3ms.
                 </p>
                 {showButton && (
                     <Link to="/apply-now" className="btn" style={{

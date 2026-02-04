@@ -226,7 +226,7 @@ const Home = () => {
                             animate={{ y: [0, -15, 0] }}
                             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                             src="/hero-main.png"
-                            alt="3MS App"
+                            alt="3ms App"
                             style={{ width: '100%', maxWidth: '550px', height: 'auto' }}
                         />
                     </motion.div>
@@ -269,7 +269,7 @@ const Home = () => {
                                 Start Your <span style={{ color: 'var(--primary)' }}>Franchise</span> Business 2026
                             </h2>
                             <p style={{ fontSize: '1.2rem', color: '#aaa', marginBottom: '40px', lineHeight: '1.7' }}>
-                                We are inviting partners to operate 3MS at District, Constituency, and Local Body levels. Join the hyperlocal revolution.
+                                We are inviting partners to operate 3ms at District, Constituency, and Local Body levels. Join the hyperlocal revolution.
                             </p>
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
                                 <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: '20px' }}>
@@ -334,14 +334,14 @@ const Home = () => {
                 <div className="container" style={{ maxWidth: '900px' }}>
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <h2 style={{ fontSize: '3rem', fontWeight: '800' }}>FAQ</h2>
-                        <p style={{ color: '#666' }}>Everything you need to know about 3MS</p>
+                        <p style={{ color: '#666' }}>Everything you need to know about 3ms</p>
                     </div>
                     <div>
                         {[
-                            { q: "What is the 3MS mobile application?", a: "3MS is a multi-functional mobile application designed to serve both businesses and individuals. It features six key modules - Buy & Sell, Charity, Utility, Cluster (JAR), Cash Book, and Diary - offering a range of solutions for online business, charity management, personal finance, and more." },
-                            { q: "Is the 3MS app free to use?", a: "Yes, the Utility, Cash Book, and Diary modules are free. The Buy & Sell, Charity, and Cluster (JAR) modules may require a subscription." },
-                            { q: "How do I set up a shop in the Buy & Sell module?", a: "Sign in to the 3MS app, go to the Buy & Sell module, click on Create Shop, enter your business details, and upload your products." },
-                            { q: "What is the 3MS franchise opportunity?", a: "The franchise allows partners to manage and promote 3MS in their district, verifying shops and charity requests while earning 50% of the district’s profit." },
+                            { q: "What is the 3ms mobile application?", a: "3ms is a multi-functional mobile application designed to serve both businesses and individuals. It features six key modules - Buy & Sell, Charity, Utility, Cluster (JAR), Cash Book, and Diary - offering a range of solutions for online business, charity management, personal finance, and more." },
+                            { q: "Is the 3ms app free to use?", a: "Yes, the Utility, Cash Book, and Diary modules are free. The Buy & Sell, Charity, and Cluster (JAR) modules may require a subscription." },
+                            { q: "How do I set up a shop in the Buy & Sell module?", a: "Sign in to the 3ms app, go to the Buy & Sell module, click on Create Shop, enter your business details, and upload your products." },
+                            { q: "What is the 3ms franchise opportunity?", a: "The franchise allows partners to manage and promote 3ms in their district, verifying shops and charity requests while earning 50% of the district’s profit." },
                             { q: "How do I get support if I face issues?", a: "Contact our support team through the Help & Support section in the app or via email on our official website." }
                         ].map((faq, idx) => (
                             <FAQItem key={idx} question={faq.q} answer={faq.a} />

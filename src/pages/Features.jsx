@@ -55,7 +55,7 @@ const Features = () => {
                             viewport={{ once: false }}
                             style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px' }}
                         >
-                            Deep Dive Into 3MS
+                            Deep Dive Into 3ms
                         </motion.p>
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
@@ -86,7 +86,7 @@ const Features = () => {
                                 maxWidth: '800px',
                                 margin: '0 auto 40px'
                             }}>
-                            3MS is one of the few platforms capable of digitally representing the economic, social, and service structure of an entire local region.
+                            3ms is one of the few platforms capable of digitally representing the economic, social, and service structure of an entire local region.
                         </motion.p>
                     </div>
                 </section>

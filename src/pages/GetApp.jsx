@@ -79,7 +79,7 @@ const GetApp = () => {
                             marginBottom: '30px'
                         }}
                     >
-                        Get the 3MS App
+                        Get the 3ms App
                     </motion.h1>
 
                     <motion.p

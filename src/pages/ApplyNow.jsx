@@ -275,7 +275,7 @@ const ApplyNow = () => {
                                 style={{ position: 'sticky', top: '120px' }}
                             >
                                 <h2 style={{ fontSize: '2.2rem', fontWeight: '800', marginBottom: '30px', color: '#1a1a1a' }}>
-                                    Why partner with <span style={{ color: 'var(--primary)' }}>3MS</span>?
+                                    Why partner with <span style={{ color: 'var(--primary)' }}>3ms</span>?
                                 </h2>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
                                     {benefits.map((b, i) => (

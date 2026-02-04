@@ -94,7 +94,7 @@ const UserGuide = () => {
                         >
                             <img
                                 src="/Untitled-design-7.jpg"
-                                alt="User using 3MS app"
+                                alt="User using 3ms app"
                                 style={{ width: '100%', height: 'auto', display: 'block' }}
                             />
                         </motion.div>

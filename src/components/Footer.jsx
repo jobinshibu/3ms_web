@@ -10,9 +10,9 @@ const Footer = () => {
             <div className="container grid grid-4" style={{ gap: '40px', paddingBottom: '60px' }}>
                 {/* Column 1: Intro */}
                 <div style={{ minWidth: '0' }}>
-                    <img src="/3msLOGO.png" alt="3MS Logo" style={{ height: '60px', width: 'auto', marginBottom: '20px', filter: 'brightness(0) invert(1)' }} />
+                    <img src="/3msLOGO.png" alt="3ms Logo" style={{ height: '60px', width: 'auto', marginBottom: '20px', filter: 'brightness(0) invert(1)' }} />
                     <p style={{ color: '#999', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                        3MS ecosystem grows at the very small business and Kerala locally based levels to reach every door.
+                        3ms ecosystem grows at the very small business and Kerala locally based levels to reach every door.
                     </p>
                 </div>
 
@@ -22,30 +22,30 @@ const Footer = () => {
                     <ul style={{ display: 'flex', flexDirection: 'column', gap: '15px', color: '#999', fontSize: '0.95rem' }}>
                         <li style={{ display: 'flex', gap: '10px' }}>
                             <Phone size={18} style={{ color: 'var(--primary)', marginTop: '2px' }} />
-                            <a href="tel:+919526476607" style={{ color: '#999', textDecoration: 'none' }}>+919526476607</a>
+                            <a href="tel:+919526476607" className="footer-contact-link">+919526476607</a>
                         </li>
                         <li style={{ display: 'flex', gap: '10px' }}>
                             <MessageCircle size={18} style={{ color: '#25D366', marginTop: '2px' }} />
-                            <a href="https://wa.me/919526476607" target="_blank" rel="noopener noreferrer" style={{ color: '#999', textDecoration: 'none' }}>+919526476607</a>
+                            <a href="https://wa.me/919526476607" target="_blank" rel="noopener noreferrer" className="footer-contact-link">+919526476607</a>
                         </li>
                         <li style={{ display: 'flex', gap: '10px' }}>
                             <Instagram size={18} style={{ color: '#E1306C', marginTop: '2px' }} />
-                            <a href="https://www.instagram.com/3mssolutions?igsh=bGsxemk4NXh5MTVq&utm_source=qr" target="_blank" rel="noopener noreferrer" style={{ color: '#999', textDecoration: 'none' }}>@3mssolutions</a>
+                            <a href="https://www.instagram.com/3mssolutions?igsh=bGsxemk4NXh5MTVq&utm_source=qr" target="_blank" rel="noopener noreferrer" className="footer-contact-link">@3mssolutions</a>
                         </li>
                         <li style={{ display: 'flex', gap: '10px' }}>
                             <Facebook size={18} style={{ color: '#1877F2', marginTop: '2px' }} />
-                            <a href="https://www.facebook.com/share/1XWDZFPitw/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" style={{ color: '#999', textDecoration: 'none' }}>3ms</a>
+                            <a href="https://www.facebook.com/share/1XWDZFPitw/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="footer-contact-link">3ms</a>
                         </li>
                         <li style={{ display: 'flex', gap: '10px' }}>
                             <Mail size={18} style={{ color: 'var(--primary)', marginTop: '2px' }} />
-                            <a href="mailto:info@3ms.co.in" style={{ color: '#999', textDecoration: 'none' }}>info@3ms.co.in</a>
+                            <a href="mailto:info@3ms.co.in" className="footer-contact-link">info@3ms.co.in</a>
                         </li>
                     </ul>
                     <div style={{ marginTop: '30px', paddingTop: '20px', borderTop: '1px solid #222' }}>
                         <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.9rem' }}>
-                            <li><Link to="/privacy-policy" style={{ color: '#666', textDecoration: 'none' }}>Privacy Policy</Link></li>
-                            <li><Link to="/terms-conditions" style={{ color: '#666', textDecoration: 'none' }}>Terms & Conditions</Link></li>
-                            <li><Link to="/legal" style={{ color: '#666', textDecoration: 'none' }}>Subscription, Refund & Cancellation</Link></li>
+                            <li><Link to="/privacy-policy" className="footer-link" style={{ color: '#666' }}>Privacy Policy</Link></li>
+                            <li><Link to="/terms-conditions" className="footer-link" style={{ color: '#666' }}>Terms & Conditions</Link></li>
+                            <li><Link to="/legal" className="footer-link" style={{ color: '#666' }}>Subscription, Refund & Cancellation</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -54,11 +54,11 @@ const Footer = () => {
                 <div style={{ minWidth: '0' }}>
                     <h3 style={{ fontSize: '1.2rem', marginBottom: '25px', fontWeight: '700' }}>Quick Links</h3>
                     <ul style={{ display: 'flex', flexDirection: 'column', gap: '15px', color: '#999', fontSize: '1rem' }}>
-                        <li><Link to="/" style={footerLinkStyle}>Home</Link></li>
-                        <li><Link to="/about" style={footerLinkStyle}>About</Link></li>
-                        <li><Link to="/features" style={footerLinkStyle}>Features</Link></li>
-                        <li><Link to="/user-guide" style={footerLinkStyle}>User Guide</Link></li>
-                        <li><Link to="/contact" style={footerLinkStyle}>Contact</Link></li>
+                        <li><Link to="/" className="footer-link">Home</Link></li>
+                        <li><Link to="/about" className="footer-link">About</Link></li>
+                        <li><Link to="/features" className="footer-link">Features</Link></li>
+                        <li><Link to="/user-guide" className="footer-link">User Guide</Link></li>
+                        <li><Link to="/contact" className="footer-link">Contact</Link></li>
                     </ul>
                 </div>
 

@@ -30,7 +30,7 @@ const AppRedirect = () => {
             backgroundColor: '#ffffff'
         }}>
             <div style={{ textAlign: 'center' }}>
-                <img src="/3msLOGO-croped.png" alt="3MS Logo" style={{ width: '80px', marginBottom: '20px' }} />
+                <img src="/3msLOGO-croped.png" alt="3ms Logo" style={{ width: '80px', marginBottom: '20px' }} />
                 <h2 style={{ fontSize: '1.2rem', fontWeight: '500', color: '#666' }}>Redirecting to App Store...</h2>
             </div>
         </div>

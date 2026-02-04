@@ -90,7 +90,7 @@ const About = () => {
                                 margin: '0 auto 40px'
                             }}
                         >
-                            3MS is a pioneering digital platform designed to connect every business, service provider, organization, and individual within a locality. We transform local regions into digitally empowered communities.
+                            3ms is a pioneering digital platform designed to connect every business, service provider, organization, and individual within a locality. We transform local regions into digitally empowered communities.
                         </motion.p>
 
                         <motion.div
@@ -180,10 +180,10 @@ const About = () => {
                             </h2>
                             <div style={{ color: '#444', fontSize: '1.05rem', lineHeight: '1.9', display: 'flex', flexDirection: 'column', gap: '25px' }}>
                                 <p>
-                                    <strong>TrippleM Solutions LLP</strong> is a technology-driven company committed to building scalable digital solutions for local communities. Our flagship product, the 3MS mobile platform, is designed to empower individuals, support small businesses, and digitize community operations.
+                                    <strong>TrippleM Solutions LLP</strong> is a technology-driven company committed to building scalable digital solutions for local communities. Our flagship product, the 3ms mobile platform, is designed to empower individuals, support small businesses, and digitize community operations.
                                 </p>
                                 <p>
-                                    In today's digital age, local markets have been significantly impacted by the rise of e-commerce. Many small enterprises have struggled to adapt, resulting in a decline in local transactions. To address this, we developed 3MS with a robust Buy & Sell module designed to reconnect local businesses with their communities.
+                                    In today's digital age, local markets have been significantly impacted by the rise of e-commerce. Many small enterprises have struggled to adapt, resulting in a decline in local transactions. To address this, we developed 3ms with a robust Buy & Sell module designed to reconnect local businesses with their communities.
                                 </p>
                                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '10px' }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -213,7 +213,7 @@ const About = () => {
                         >
                             <img
                                 src="/Copy-of-Untitled-Design.png"
-                                alt="3MS App Growth"
+                                alt="3ms App Growth"
                                 style={{ width: '100%', height: 'auto', display: 'block' }}
                             />
                         </motion.div>

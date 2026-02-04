@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Smartphone, ArrowRight } from 'lucide-react';
 
 const Header = () => {
@@ -27,17 +27,17 @@ const Header = () => {
                 width: '100%'
             }}>
                 <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <img src="/3msLOGO.png" alt="3MS Logo" className="header-logo" style={{ height: '70px', width: 'auto', padding: '5px 0', transition: 'height 0.3s' }} />
+                    <img src="/3msLOGO.png" alt="3ms Logo" className="header-logo" style={{ height: '70px', width: 'auto', padding: '5px 0', transition: 'height 0.3s' }} />
                 </Link>
 
                 {/* Desktop Nav */}
                 <nav style={{ display: 'none', gap: '30px' }} className="desktop-nav">
-                    <Link to="/" style={{ fontWeight: '500' }}>Home</Link>
-                    <Link to="/about" style={{ fontWeight: '500' }}>About</Link>
-                    <Link to="/features" style={{ fontWeight: '500' }}>Features</Link>
-                    <Link to="/user-guide" style={{ fontWeight: '500' }}>User Guide</Link>
-                    <Link to="/contact" style={{ fontWeight: '500' }}>Contact Us</Link>
-                    <Link to="/apply-now" style={{ fontWeight: '500' }}>Apply Now</Link>
+                    <NavLink to="/" className="nav-link">Home</NavLink>
+                    <NavLink to="/about" className="nav-link">About</NavLink>
+                    <NavLink to="/features" className="nav-link">Features</NavLink>
+                    <NavLink to="/user-guide" className="nav-link">User Guide</NavLink>
+                    <NavLink to="/contact" className="nav-link">Contact Us</NavLink>
+                    <NavLink to="/apply-now" className="nav-link">Apply Now</NavLink>
                 </nav>
 
                 <div className="desktop-nav" style={{ display: 'none' }}>
@@ -69,15 +69,16 @@ const Header = () => {
                     gap: '15px',
                     zIndex: 999
                 }}>
-                    <Link to="/" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Home</Link>
-                    <Link to="/about" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>About</Link>
-                    <Link to="/features" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Features</Link>
-                    <Link to="/user-guide" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>User Guide</Link>
-                    <Link to="/apply-now" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Apply Now</Link>
-                    <Link to="/contact" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Contact</Link>
+                    <NavLink to="/" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Home</NavLink>
+                    <NavLink to="/about" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>About</NavLink>
+                    <NavLink to="/features" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Features</NavLink>
+                    <NavLink to="/user-guide" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>User Guide</NavLink>
+                    <NavLink to="/apply-now" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Apply Now</NavLink>
+                    <NavLink to="/contact" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Contact</NavLink>
                     <Link to="/get-app" className="btn" style={{ backgroundColor: 'var(--primary)', color: '#fff', textAlign: 'center', marginTop: '10px' }} onClick={() => setIsOpen(false)}>Get the App</Link>
                 </div>
             )}
+
 
             <style>{`
         @media (min-width: 769px) {
