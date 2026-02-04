@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "3URKM33U6F.com.threems.app",
+        "paths": [
+          "/invite/*",
+          "/referral/*",
+          "/CharityInvitePage/*",
+          "/ChitInvitePage/*",
+          "/affiliate/*",
+          "/store/*",
+          "/service/*"
+        ]
+      }
+    ]
+  }
+}
