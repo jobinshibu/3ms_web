@@ -66,7 +66,7 @@ const Contact = () => {
                 <section style={{ padding: '40px 0' }}>
                     <div className="container">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
+                            initial={{ opacity: 0, scale: 1 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: false }}
                             transition={{ duration: 0.5 }}
@@ -76,7 +76,7 @@ const Contact = () => {
                                 borderRadius: '16px',
                                 padding: '50px 30px',
                                 display: 'grid',
-                                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
                                 gap: '30px',
                                 textAlign: 'center',
                                 color: '#fff'
