@@ -9,12 +9,25 @@ const AppRedirect = () => {
         const appStoreUrl = "https://apps.apple.com/in/app/3ms/id6745809435";
         const playStoreUrl = "https://play.google.com/store/apps/details?id=com.firstlogicmetalab.threems";
 
+        // Get the current path and query params to pass to the app
+        const path = window.location.pathname;
+        const search = window.location.search;
+        const deepLinkPath = `${path}${search}`.replace(/^\//, ''); // e.g. "store?storeId=..."
+
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            // iOS Redirection
-            window.location.href = appStoreUrl;
+            // iOS Redirection: Try scheme first, fallback to App Store after a delay
+            const iosDeepLink = `threems://${deepLinkPath}`;
+            window.location.href = iosDeepLink;
+
+            const timeout = setTimeout(() => {
+                window.location.href = appStoreUrl;
+            }, 2500);
+
+            return () => clearTimeout(timeout);
         } else if (/android/i.test(userAgent)) {
-            // Android Redirection
-            window.location.href = playStoreUrl;
+            // Android Redirection: Use Intent for robust redirect and auto-fallback
+            const androidIntent = `intent://${deepLinkPath}#Intent;scheme=threems;package=com.firstlogicmetalab.threems;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+            window.location.href = androidIntent;
         } else {
             // Desktop or unknown: Redirect to 'Get App' page
             navigate('/get-app');
