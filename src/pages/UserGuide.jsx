@@ -15,6 +15,7 @@ const GuideCard = ({ image, title, items, link, index }) => (
         <Link to={link || "#"} style={{ textDecoration: 'none', color: 'inherit' }}>
             <motion.div
                 whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                className="guide-card-inner"
                 style={{
                     backgroundColor: 'white',
                     borderRadius: '24px',
@@ -28,14 +29,17 @@ const GuideCard = ({ image, title, items, link, index }) => (
                     transition: 'box-shadow 0.3s ease'
                 }}
             >
-                <div style={{
-                    width: '180px',
-                    height: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                }}>
+                <div
+                    className="guide-card-image"
+                    style={{
+                        width: '180px',
+                        height: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0
+                    }}
+                >
                     <motion.img
                         initial={{ scale: 0.9 }}
                         whileInView={{ scale: 1 }}
@@ -75,7 +79,7 @@ const UserGuide = () => {
             <div style={{ backgroundColor: '#fff' }}>
                 {/* Hero Section */}
                 <section style={{ padding: '160px 0 100px', backgroundColor: '#fff' }}>
-                    <div className="container" style={{ display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: '80px', alignItems: 'center' }}>
+                    <div className="container grid grid-2" style={{ gap: '80px', alignItems: 'center' }}>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -101,7 +105,7 @@ const UserGuide = () => {
                             transition={{ duration: 0.8, ease: "easeOut" }}
                         >
                             <h1 style={{
-                                fontSize: '3.8rem',
+                                fontSize: 'clamp(2rem, 5vw, 3.8rem)',
                                 fontWeight: '700',
                                 color: '#000',
                                 lineHeight: '1.1',
@@ -124,7 +128,7 @@ const UserGuide = () => {
                 {/* Getting Started Section */}
                 <section style={{ padding: '100px 0', backgroundColor: '#fff' }}>
                     <div className="container">
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '100px', alignItems: 'center' }}>
+                        <div className="grid grid-2" style={{ gap: '100px', alignItems: 'center' }}>
                             <motion.div
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -176,7 +180,7 @@ const UserGuide = () => {
                 {/* Module Guides Grid */}
                 <section style={{ padding: '80px 0 140px' }}>
                     <div className="container">
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px' }}>
                             {[
                                 { image: "/Untitled-design-17.png", title: "Navigation and Settings", items: ["Terms and Conditions", "FAQ", "How to Use"], link: "/user-guide/navigation-settings" },
                                 { image: "/Untitled-design-17.png", title: "Diary", items: ["How it Works"], link: "/user-guide/diary" },
@@ -192,6 +196,21 @@ const UserGuide = () => {
                         </div>
                     </div>
                 </section>
+
+                <style>{`
+                    @media (max-width: 768px) {
+                        .guide-card-inner {
+                            flex-direction: column !important;
+                            height: auto !important;
+                            gap: 20px !important;
+                            text-align: center;
+                        }
+                        .guide-card-image {
+                            width: 120px !important;
+                            height: 120px !important;
+                        }
+                    }
+                `}</style>
 
                 <CTA />
             </div>

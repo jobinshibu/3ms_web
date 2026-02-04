@@ -6,10 +6,10 @@ const Footer = () => {
     const footerLinkStyle = { color: '#999', textDecoration: 'none' };
 
     return (
-        <footer style={{ backgroundColor: '#0a0a0a', color: 'white', paddingTop: '80px', borderTop: '4px solid var(--primary)' }}>
-            <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '40px', paddingBottom: '60px' }}>
+        <footer style={{ backgroundColor: '#0a0a0a', color: 'white', paddingTop: '80px', borderTop: '4px solid var(--primary)', overflowX: 'hidden' }}>
+            <div className="container grid grid-4" style={{ gap: '40px', paddingBottom: '60px' }}>
                 {/* Column 1: Intro */}
-                <div>
+                <div style={{ minWidth: '0' }}>
                     <img src="/3msLOGO.png" alt="3MS Logo" style={{ height: '60px', width: 'auto', marginBottom: '20px', filter: 'brightness(0) invert(1)' }} />
                     <p style={{ color: '#999', fontSize: '0.9rem', lineHeight: '1.6' }}>
                         3MS ecosystem grows at the very small business and Kerala locally based levels to reach every door.
@@ -17,7 +17,7 @@ const Footer = () => {
                 </div>
 
                 {/* Column 2: Contact */}
-                <div>
+                <div style={{ minWidth: '0' }}>
                     <h3 style={{ fontSize: '1.2rem', marginBottom: '25px', fontWeight: '700' }}>Contact</h3>
                     <ul style={{ display: 'flex', flexDirection: 'column', gap: '15px', color: '#999', fontSize: '0.95rem' }}>
                         <li style={{ display: 'flex', gap: '10px' }}>
@@ -51,7 +51,7 @@ const Footer = () => {
                 </div>
 
                 {/* Column 3: Quick Links */}
-                <div>
+                <div style={{ minWidth: '0' }}>
                     <h3 style={{ fontSize: '1.2rem', marginBottom: '25px', fontWeight: '700' }}>Quick Links</h3>
                     <ul style={{ display: 'flex', flexDirection: 'column', gap: '15px', color: '#999', fontSize: '1rem' }}>
                         <li><Link to="/" style={footerLinkStyle}>Home</Link></li>
@@ -63,7 +63,7 @@ const Footer = () => {
                 </div>
 
                 {/* Column 4: Address */}
-                <div>
+                <div style={{ minWidth: '0' }}>
                     <h3 style={{ fontSize: '1.2rem', marginBottom: '25px', fontWeight: '700' }}>Address</h3>
                     <a
                         href="https://maps.app.goo.gl/VhFAVXGSvK3Qu3td6?g_st=iw"

@@ -241,7 +241,7 @@ const Home = () => {
                         <p style={{ fontSize: '1.2rem', color: '#666' }}>Digitally representing the economic, social, and service structure of entire regions.</p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
                         {[
                             { icon: ShoppingBag, title: "Buy & Sell Market", badge: "No Commission", color: "#4CAF50", description: "A lightweight marketplace for local shops. Zero commission, direct business-customer dealings, and easy digital inventory." },
                             { icon: Landmark, title: "Social Economy (JAR)", badge: "JAR", color: "#2196F3", description: "Digitizes traditional community-based chit funds (JAR). Secure record management, draw logs, and payment tracking." },

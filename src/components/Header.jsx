@@ -27,7 +27,7 @@ const Header = () => {
                 width: '100%'
             }}>
                 <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <img src="/3msLOGO.png" alt="3MS Logo" style={{ height: '70px', width: 'auto', padding: '5px 0' }} />
+                    <img src="/3msLOGO.png" alt="3MS Logo" className="header-logo" style={{ height: '70px', width: 'auto', padding: '5px 0', transition: 'height 0.3s' }} />
                 </Link>
 
                 {/* Desktop Nav */}
@@ -47,7 +47,7 @@ const Header = () => {
                 {/* Mobile Toggle */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    style={{ display: 'block', background: 'none', border: 'none', cursor: 'pointer' }}
+                    style={{ display: 'block', background: 'none', border: 'none', cursor: 'pointer', padding: '10px', marginRight: '-10px' }}
                     className="mobile-toggle"
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -66,15 +66,16 @@ const Header = () => {
                     boxShadow: 'var(--shadow)',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '15px'
+                    gap: '15px',
+                    zIndex: 999
                 }}>
-                    <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
-                    <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
-                    <Link to="/features" onClick={() => setIsOpen(false)}>Features</Link>
-                    <Link to="/user-guide" onClick={() => setIsOpen(false)}>User Guide</Link>
-                    <Link to="/apply-now" onClick={() => setIsOpen(false)}>Apply Now</Link>
-                    <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
-                    <Link to="/get-app" className="btn" style={{ backgroundColor: 'var(--primary)', color: '#fff', textAlign: 'center' }} onClick={() => setIsOpen(false)}>Get the App</Link>
+                    <Link to="/" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Home</Link>
+                    <Link to="/about" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>About</Link>
+                    <Link to="/features" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Features</Link>
+                    <Link to="/user-guide" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>User Guide</Link>
+                    <Link to="/apply-now" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Apply Now</Link>
+                    <Link to="/contact" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Contact</Link>
+                    <Link to="/get-app" className="btn" style={{ backgroundColor: 'var(--primary)', color: '#fff', textAlign: 'center', marginTop: '10px' }} onClick={() => setIsOpen(false)}>Get the App</Link>
                 </div>
             )}
 
@@ -82,6 +83,9 @@ const Header = () => {
         @media (min-width: 769px) {
           .desktop-nav { display: flex !important; }
           .mobile-toggle { display: none !important; }
+        }
+        @media (max-width: 768px) {
+          .header-logo { height: 50px !important; }
         }
       `}</style>
         </header>

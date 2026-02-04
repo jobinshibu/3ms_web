@@ -104,7 +104,7 @@ const ModuleDetail = () => {
         <PageWrapper>
             <div style={{ backgroundColor: '#fff' }}>
                 <section style={{ padding: '160px 0 100px' }}>
-                    <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+                    <div className="container grid grid-2" style={{ gap: '80px', alignItems: 'center' }}>
                         <motion.div
                             initial={{ opacity: 0, x: -50, scale: 0.9 }}
                             whileInView={{ opacity: 1, x: 0, scale: 1 }}
