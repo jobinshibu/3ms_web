@@ -29,20 +29,23 @@ const AppRedirect = () => {
             const iosDeepLink = `threems://${deepLinkPath}`;
             window.location.href = iosDeepLink;
 
+            // Timeout-based fallback for iOS
             timer = setTimeout(() => {
                 if (!document.hidden && !document.webkitHidden) {
-                    window.location.replace(appStoreUrl);
+                    window.location.href = appStoreUrl;
                 }
-            }, 2500);
+            }, 3000);
 
         } else if (/android/i.test(userAgent)) {
-            // Android: Single robust Intent trigger
-            // This handles App opening and Play Store fallback natively in Chrome/Samsung browsers
-            const androidIntent = `intent://${deepLinkPath}#Intent;scheme=threems;package=com.firstlogicmetalab.threems;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
-            window.location.replace(androidIntent);
+            // Android: Highly compatible Intent
+            // Adding BROWSABLE category is key for many browsers to allow the jump
+            const intentPath = deepLinkPath || "/";
+            const androidIntent = `intent://${intentPath}#Intent;scheme=threems;package=com.firstlogicmetalab.threems;category=android.intent.category.BROWSABLE;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+
+            window.location.href = androidIntent;
 
         } else {
-            // Desktop or unknown
+            // Desktop or unknown: Redirect to 'Get App' page
             navigate('/get-app');
         }
 
