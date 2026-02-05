@@ -14,18 +14,10 @@ const AppRedirect = () => {
         const deepLinkPath = `${path}${search}`.replace(/^\//, '');
 
         let timer;
-        const clearTimer = () => {
-            if (timer) {
-                clearTimeout(timer);
-                timer = null;
-            }
-        };
+        const clearTimer = () => { if (timer) clearTimeout(timer); };
 
         const handleVisibilityChange = () => {
-            if (document.hidden || document.webkitHidden) {
-                console.log("App opened, clearing redirect timer");
-                clearTimer();
-            }
+            if (document.hidden || document.webkitHidden) clearTimer();
         };
 
         window.addEventListener('visibilitychange', handleVisibilityChange);
@@ -33,11 +25,9 @@ const AppRedirect = () => {
         window.addEventListener('pagehide', clearTimer);
 
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            // iOS: Try custom scheme immediately
-            const iosDeepLink = `threems://${deepLinkPath}`;
-            window.location.href = iosDeepLink;
+            // iOS: Try custom scheme
+            window.location.href = `threems://${deepLinkPath}`;
 
-            // Fallback after 2s
             timer = setTimeout(() => {
                 if (!document.hidden && !document.webkitHidden) {
                     window.location.replace(appStoreUrl);
@@ -45,13 +35,18 @@ const AppRedirect = () => {
             }, 2500);
 
         } else if (/android/i.test(userAgent)) {
-            // Android: Multi-stage approach
-            // 1. Try direct scheme first (works for many browsers)
-            const directScheme = `threems://${deepLinkPath}`;
-            window.location.href = directScheme;
+            // Android: Multi-scheme trial + Intent
+            // First try common schemes
+            window.location.href = `threems://${deepLinkPath}`;
 
-            // 2. Short delay then try Intent (Chrome's preferred way)
-            // If the direct scheme worked, visibilitychange will kill this timer
+            // Try 3ms:// as well just in case
+            setTimeout(() => {
+                if (!document.hidden && !document.webkitHidden) {
+                    window.location.href = `3ms://${deepLinkPath}`;
+                }
+            }, 500);
+
+            // Final fallback via Intent if still here after 1.5s
             timer = setTimeout(() => {
                 if (!document.hidden && !document.webkitHidden) {
                     const androidIntent = `intent://${deepLinkPath}#Intent;scheme=threems;package=com.firstlogicmetalab.threems;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
@@ -79,10 +74,11 @@ const AppRedirect = () => {
             justifyContent: 'center',
             backgroundColor: '#ffffff'
         }}>
-            <div style={{ textAlign: 'center' }}>
-                <img src="/3msLOGO-croped.png" alt="3ms Logo" style={{ width: '80px', marginBottom: '20px' }} />
-                <h2 style={{ fontSize: '1rem', fontWeight: '500', color: '#888' }}>Redirecting...</h2>
-            </div>
+            <img
+                src="/3msLOGO-croped.png"
+                alt="3ms Logo"
+                style={{ width: '80px', opacity: 0.5 }}
+            />
         </div>
     );
 };

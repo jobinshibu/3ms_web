@@ -52,14 +52,26 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="app-wrapper">
-        <Header />
-        <main style={{ minHeight: 'calc(100vh - 400px)' }}>
-          <AnimatedRoutes />
-        </main>
-        <Footer />
-      </div>
+      <AppLayout />
     </Router>
+  );
+}
+
+function AppLayout() {
+  const location = useLocation();
+  const isRedirectPage = [
+    '/invite', '/referral', '/CharityInvitePage', '/ChitInvitePage',
+    '/affiliate', '/store', '/service'
+  ].some(path => location.pathname.startsWith(path));
+
+  return (
+    <div className="app-wrapper">
+      {!isRedirectPage && <Header />}
+      <main style={{ minHeight: isRedirectPage ? '100vh' : 'calc(100vh - 400px)' }}>
+        <AnimatedRoutes />
+      </main>
+      {!isRedirectPage && <Footer />}
+    </div>
   );
 }
 
