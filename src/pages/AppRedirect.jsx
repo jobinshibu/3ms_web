@@ -26,7 +26,8 @@ const AppRedirect = () => {
 
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
             // iOS: Try custom scheme
-            window.location.href = `threems://${deepLinkPath}`;
+            const iosDeepLink = `threems://${deepLinkPath}`;
+            window.location.href = iosDeepLink;
 
             timer = setTimeout(() => {
                 if (!document.hidden && !document.webkitHidden) {
@@ -35,26 +36,13 @@ const AppRedirect = () => {
             }, 2500);
 
         } else if (/android/i.test(userAgent)) {
-            // Android: Multi-scheme trial + Intent
-            // First try common schemes
-            window.location.href = `threems://${deepLinkPath}`;
-
-            // Try 3ms:// as well just in case
-            setTimeout(() => {
-                if (!document.hidden && !document.webkitHidden) {
-                    window.location.href = `3ms://${deepLinkPath}`;
-                }
-            }, 500);
-
-            // Final fallback via Intent if still here after 1.5s
-            timer = setTimeout(() => {
-                if (!document.hidden && !document.webkitHidden) {
-                    const androidIntent = `intent://${deepLinkPath}#Intent;scheme=threems;package=com.firstlogicmetalab.threems;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
-                    window.location.replace(androidIntent);
-                }
-            }, 1500);
+            // Android: Single robust Intent trigger
+            // This handles App opening and Play Store fallback natively in Chrome/Samsung browsers
+            const androidIntent = `intent://${deepLinkPath}#Intent;scheme=threems;package=com.firstlogicmetalab.threems;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+            window.location.replace(androidIntent);
 
         } else {
+            // Desktop or unknown
             navigate('/get-app');
         }
 
