@@ -37,17 +37,28 @@ const AppRedirect = () => {
             const iosDeepLink = `threems://${deepLinkPath}`;
             window.location.href = iosDeepLink;
 
-            // Fallback to App Store after a shorter delay (enough for the 'Open?' prompt)
+            // Fallback after 2s
             timer = setTimeout(() => {
                 if (!document.hidden && !document.webkitHidden) {
                     window.location.replace(appStoreUrl);
                 }
-            }, 2000);
+            }, 2500);
 
         } else if (/android/i.test(userAgent)) {
-            // Android: Intent handles everything natively
-            const androidIntent = `intent://${deepLinkPath}#Intent;scheme=threems;package=com.firstlogicmetalab.threems;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
-            window.location.replace(androidIntent);
+            // Android: Multi-stage approach
+            // 1. Try direct scheme first (works for many browsers)
+            const directScheme = `threems://${deepLinkPath}`;
+            window.location.href = directScheme;
+
+            // 2. Short delay then try Intent (Chrome's preferred way)
+            // If the direct scheme worked, visibilitychange will kill this timer
+            timer = setTimeout(() => {
+                if (!document.hidden && !document.webkitHidden) {
+                    const androidIntent = `intent://${deepLinkPath}#Intent;scheme=threems;package=com.firstlogicmetalab.threems;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+                    window.location.replace(androidIntent);
+                }
+            }, 1500);
+
         } else {
             navigate('/get-app');
         }
