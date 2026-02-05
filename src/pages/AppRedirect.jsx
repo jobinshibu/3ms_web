@@ -37,10 +37,10 @@ const AppRedirect = () => {
             }, 3000);
 
         } else if (/android/i.test(userAgent)) {
-            // Android: Highly compatible Intent
-            // Adding BROWSABLE category is key for many browsers to allow the jump
-            const intentPath = deepLinkPath || "/";
-            const androidIntent = `intent://${intentPath}#Intent;scheme=threems;package=com.firstlogicmetalab.threems;category=android.intent.category.BROWSABLE;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+            // Android: Use https scheme in Intent to trigger App Links
+            // This passes the full https://3ms.co.in/... URL to the app
+            const domain = "3ms.co.in";
+            const androidIntent = `intent://${domain}/${deepLinkPath}#Intent;scheme=https;package=com.firstlogicmetalab.threems;category=android.intent.category.BROWSABLE;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
 
             window.location.href = androidIntent;
 
