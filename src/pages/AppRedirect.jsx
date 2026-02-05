@@ -25,9 +25,10 @@ const AppRedirect = () => {
         window.addEventListener('pagehide', clearTimer);
 
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            // iOS: Try custom scheme
-            const iosDeepLink = `threems://${deepLinkPath}`;
-            window.location.href = iosDeepLink;
+            // iOS: Use the same HTTPS format that worked for Android
+            // This triggers Universal Links if the system permits
+            const fullUrl = `https://3ms.co.in/${deepLinkPath}`;
+            window.location.href = fullUrl;
 
             // Timeout-based fallback for iOS
             timer = setTimeout(() => {
@@ -38,7 +39,6 @@ const AppRedirect = () => {
 
         } else if (/android/i.test(userAgent)) {
             // Android: Use https scheme in Intent to trigger App Links
-            // This passes the full https://3ms.co.in/... URL to the app
             const domain = "3ms.co.in";
             const androidIntent = `intent://${domain}/${deepLinkPath}#Intent;scheme=https;package=com.firstlogicmetalab.threems;category=android.intent.category.BROWSABLE;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
 
