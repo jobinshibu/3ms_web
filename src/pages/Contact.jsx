@@ -1,10 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Headphones, Lightbulb, Facebook } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PageWrapper from '../components/PageWrapper';
 import CTA from '../components/CTA';
 
+
 const Contact = () => {
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+
+    const [success, setSuccess] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setSuccess(false);
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await res.json();
+
+            if(data.success) {
+                setSuccess(true);
+                setFormData({ name: '', email: '', subject: '', message: '' });
+            }
+        } catch (err) {}
+
+        setLoading(false);
+    };
+
+
     return (
         <PageWrapper>
             <div style={{ backgroundColor: '#fff' }}>
@@ -172,28 +211,45 @@ const Contact = () => {
                                 We'd love to hear from you! Fill out the form below, and our team will get back to you as soon as possible.
                             </p>
 
-                            <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                                 <div className="grid grid-2" style={{ gap: '20px' }}>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                         <label style={{ fontSize: '0.9rem', fontWeight: '600', color: '#333' }}>Your Name (required)</label>
-                                        <input type="text" style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #eee', backgroundColor: '#f9f9f9' }} />
+                                        <input type="text" name="name" required value={formData.name} onChange={handleChange} style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #eee', backgroundColor: '#f9f9f9' }} />
                                     </div>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                         <label style={{ fontSize: '0.9rem', fontWeight: '600', color: '#333' }}>Your Email (required)</label>
-                                        <input type="email" style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #eee', backgroundColor: '#f9f9f9' }} />
+                                        <input type="email" name="email" required value={formData.email} onChange={handleChange} style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #eee', backgroundColor: '#f9f9f9' }} />
                                     </div>
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                     <label style={{ fontSize: '0.9rem', fontWeight: '600', color: '#333' }}>Subject</label>
-                                    <input type="text" style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #eee', backgroundColor: '#f9f9f9' }} />
+                                    <input type="text" name="subject" value={formData.subject} onChange={handleChange} style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #eee', backgroundColor: '#f9f9f9' }} />
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                     <label style={{ fontSize: '0.9rem', fontWeight: '600', color: '#333' }}>Your Message</label>
-                                    <textarea rows="6" style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #eee', backgroundColor: '#f9f9f9', resize: 'none' }}></textarea>
+                                    <textarea
+                                        rows="6"
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #eee', backgroundColor: '#f9f9f9', resize: 'none' }}
+                                    ></textarea>
                                 </div>
-                                <button className="btn btn-primary" style={{ alignSelf: 'flex-start', padding: '15px 40px', fontSize: '1rem', fontWeight: '700' }}>
-                                    SEND MESSAGE
+                                <button
+                                    type="submit"
+                                    disabled={loading}
+                                    className="btn btn-primary"
+                                    style={{ alignSelf: 'flex-start', padding: '15px 40px', fontSize: '1rem', fontWeight: '700', opacity: loading ? 0.7 : 1 }}
+                                >
+                                    {loading ? "Sending..." : "SEND MESSAGE"}
                                 </button>
+
+                                {success && (
+                                    <p style={{ color: 'green', marginTop: 12, fontWeight: '500' }}>
+                                        Submitted successfully. You will get a call back from us in 2-4 hours.
+                                    </p>
+                                )}
                             </form>
                         </motion.div>
                     </div>
