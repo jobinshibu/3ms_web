@@ -25,17 +25,17 @@ const AppRedirect = () => {
         window.addEventListener('pagehide', clearTimer);
 
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            // iOS: Use the same HTTPS format that worked for Android
-            // This triggers Universal Links if the system permits
-            const fullUrl = `https://3ms.co.in/${deepLinkPath}`;
-            window.location.href = fullUrl;
-
-            // Timeout-based fallback for iOS
+            // iOS: If the Universal Link didn't natively open the app and we landed here, 
+            // the app is likely not installed or the user chose "Open in Safari".
+            // Redirecting to the same https URL via JavaScript doesn't trigger Universal Links 
+            // on iOS, and it instead causes an infinite page reload loop.
+            
+            // Timeout-based fallback for iOS to redirect to the App Store
             timer = setTimeout(() => {
                 if (!document.hidden && !document.webkitHidden) {
                     window.location.href = appStoreUrl;
                 }
-            }, 3000);
+            }, 2500);
 
         } else if (/android/i.test(userAgent)) {
             // Android: Use https scheme in Intent to trigger App Links
