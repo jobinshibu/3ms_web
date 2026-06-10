@@ -163,73 +163,104 @@ const ModuleItem = ({ icon: Icon, title, description, color, index, badge }) => 
 const Home = () => {
     return (
         <PageWrapper>
-            {/* Hero Section */}
-            <section style={{ paddingTop: '120px', paddingBottom: '30px', backgroundColor: 'white', overflow: 'hidden' }}>
-                <div className="container grid grid-2" style={{ alignItems: 'center' }}>
+            {/* Split Dual-Product Hero Section */}
+            <section style={{ paddingTop: '120px', paddingBottom: '60px', backgroundColor: '#fcfcfc', overflow: 'hidden' }}>
+                <div className="container dual-hero-grid">
+                    
+                    {/* 3ms Main App */}
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1.2, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        style={{ backgroundColor: 'white', padding: '45px 40px 0', borderRadius: '30px', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}
                     >
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false }}
-                            transition={{ duration: 1.5, delay: 0.2 }}
-                            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: '1.1', marginBottom: '25px', fontWeight: '800' }}
-                        >
+
+                        <h1 style={{ fontSize: 'clamp(2rem, 3vw, 2.8rem)', lineHeight: '1.15', marginBottom: '20px', fontWeight: '800', color: '#1a1a1a' }}>
                             India's Largest<br />
-                            <span style={{ color: 'var(--primary)' }}>Hyperlocal Digital</span><br />
-                            Ecosystem
-                        </motion.h1>
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false }}
-                            transition={{ duration: 1.5, delay: 0.4 }}
-                            style={{ fontSize: '1.2rem', color: '#555', marginBottom: '35px', maxWidth: '600px', lineHeight: '1.7' }}
-                        >
-                            3ms transforms local governance units into digitally empowered communities. Connect with businesses, manage finances, and access services—all in one place.
-                        </motion.p>
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false }}
-                            transition={{ duration: 1.5, delay: 0.6 }}
-                            style={{ display: 'flex', gap: '20px', marginBottom: '40px' }}
-                        >
+                            <span style={{ color: 'var(--primary)' }}>Hyperlocal Digital</span><br /> Ecosystem
+                        </h1>
+                        <p style={{ fontSize: '1.1rem', color: '#555', marginBottom: '35px', lineHeight: '1.6', maxWidth: '400px' }}>
+                            Transform local governance units into digitally empowered communities. Connect with businesses, manage finances, and access services.
+                        </p>
+                        
+                        <div style={{ display: 'flex', gap: '15px', marginBottom: '50px', flexWrap: 'wrap' }}>
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="https://apps.apple.com/in/app/3ms/id6745809435" target="_blank" rel="noopener noreferrer"
-                                style={{ backgroundColor: '#1a1a1a', color: '#fff', display: 'flex', alignItems: 'center', gap: '10px', padding: '16px 32px', borderRadius: '12px', fontWeight: '700', textDecoration: 'none' }}
+                                style={{ backgroundColor: '#1a1a1a', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 20px', borderRadius: '12px', fontWeight: '700', textDecoration: 'none', fontSize: '0.9rem' }}
                             >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg> App Store
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg> App Store
                             </motion.a>
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="https://play.google.com/store/apps/details?id=com.firstlogicmetalab.threems" target="_blank" rel="noopener noreferrer"
-                                style={{ backgroundColor: '#fff', border: '2px solid #1a1a1a', color: '#1a1a1a', display: 'flex', alignItems: 'center', gap: '10px', padding: '16px 32px', borderRadius: '12px', fontWeight: '700', textDecoration: 'none' }}
+                                style={{ backgroundColor: '#fff', border: '2px solid #1a1a1a', color: '#1a1a1a', display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 20px', borderRadius: '12px', fontWeight: '700', textDecoration: 'none', fontSize: '0.9rem' }}
                             >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z" /></svg> Google Play
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z" /></svg> Google Play
                             </motion.a>
+                        </div>
+                        
+                        <motion.div style={{ display: 'flex', justifyContent: 'center', marginTop: 'auto', padding: '0 20px' }}>
+                            <motion.img
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                                src="/hero-main.png"
+                                alt="3ms App"
+                                style={{ width: '100%', maxWidth: '350px', height: 'auto', marginBottom: '-20px' }}
+                            />
                         </motion.div>
                     </motion.div>
+
+                    {/* 3ms Schosys App */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9, x: 50 }}
-                        animate={{ opacity: 1, scale: 1, x: 0 }}
-                        transition={{ duration: 1 }}
-                        style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                        style={{ backgroundColor: '#e3f2fd', padding: '45px 40px 0', borderRadius: '30px', boxShadow: '0 20px 50px rgba(33, 150, 243, 0.15)', border: '1px solid #bbdefb', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}
                     >
-                        <motion.img
-                            animate={{ y: [0, -15, 0] }}
-                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            src="/hero-main.png"
-                            alt="3ms App"
-                            style={{ width: '100%', maxWidth: '550px', height: 'auto' }}
-                        />
+                        <div style={{ backgroundColor: '#2196F3', color: 'white', padding: '6px 16px', borderRadius: '50px', display: 'inline-block', fontSize: '0.85rem', fontWeight: '800', marginBottom: '25px', textTransform: 'uppercase', alignSelf: 'flex-start', letterSpacing: '1px' }}>
+                            New Platform
+                        </div>
+                        <h1 style={{ fontSize: 'clamp(2rem, 3vw, 2.8rem)', lineHeight: '1.15', marginBottom: '20px', fontWeight: '800', color: '#1a1a1a' }}>
+                            Introducing<br />
+                            <span style={{ color: '#2196F3' }}>3ms Schosys</span>
+                        </h1>
+                        <p style={{ fontSize: '1.1rem', color: '#555', marginBottom: '35px', lineHeight: '1.6', maxWidth: '400px' }}>
+                            The Next-Gen School Management Solution. An all-in-one digital platform designed for schools, colleges, and training institutes.
+                        </p>
+                        
+                        <div style={{ marginBottom: '50px' }}>
+                            <Link to="/schosys" style={{
+                                backgroundColor: '#2196F3',
+                                color: 'white',
+                                padding: '14px 32px',
+                                borderRadius: '50px',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '10px',
+                                fontWeight: '700',
+                                textDecoration: 'none',
+                                fontSize: '1.05rem',
+                                boxShadow: '0 10px 20px rgba(33, 150, 243, 0.3)',
+                                transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                            }}>
+                                <Book size={20} /> Explore Schosys
+                            </Link>
+                        </div>
+                        
+                        <motion.div style={{ display: 'flex', justifyContent: 'center', marginTop: 'auto' }}>
+                            <motion.img 
+                                src="/schosys/phones_hero.png" 
+                                alt="Schosys Mobile App" 
+                                style={{ width: '100%', maxWidth: '320px', height: 'auto', display: 'block', objectFit: 'contain', marginBottom: '-10px' }}
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                            />
+                        </motion.div>
                     </motion.div>
+                    
                 </div>
             </section>
 
@@ -256,36 +287,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Schosys Banner Section */}
-            <section style={{ padding: '60px 0', backgroundColor: '#e3f2fd', borderTop: '1px solid #bbdefb', borderBottom: '1px solid #bbdefb' }}>
-                <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                    <div style={{ backgroundColor: '#2196F3', color: 'white', padding: '6px 14px', borderRadius: '50px', fontSize: '0.85rem', fontWeight: '800', marginBottom: '15px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                        New Platform
-                    </div>
-                    <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '15px', color: '#1a1a1a' }}>
-                        Introducing <span style={{ color: '#2196F3' }}>3ms Schosys</span>
-                    </h2>
-                    <p style={{ fontSize: '1.2rem', color: '#555', marginBottom: '30px', maxWidth: '700px', lineHeight: '1.6' }}>
-                        The Next-Gen School Management Solution. An all-in-one digital platform designed for schools, colleges, and training institutes to manage their entire operations efficiently.
-                    </p>
-                    <Link to="/schosys" style={{
-                        backgroundColor: '#2196F3',
-                        color: 'white',
-                        padding: '16px 36px',
-                        borderRadius: '50px',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        fontWeight: '700',
-                        textDecoration: 'none',
-                        fontSize: '1.1rem',
-                        boxShadow: '0 10px 20px rgba(33, 150, 243, 0.3)',
-                        transition: 'transform 0.2s ease, box-shadow 0.2s ease'
-                    }}>
-                        <Book size={20} /> Explore Schosys
-                    </Link>
-                </div>
-            </section>
+
 
             {/* Franchise Opportunity Section */}
             <section style={{ padding: '100px 0', backgroundColor: '#1a1a1a', color: 'white', position: 'relative', overflow: 'hidden' }}>

@@ -83,11 +83,11 @@ const Header = () => {
 
 
             <style>{`
-        @media (min-width: 769px) {
+        @media (min-width: 992px) {
           .desktop-nav { display: flex !important; }
           .mobile-toggle { display: none !important; }
         }
-        @media (max-width: 768px) {
+        @media (max-width: 991px) {
           .header-logo { height: 50px !important; }
         }
       `}</style>

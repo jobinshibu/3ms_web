@@ -133,6 +133,19 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .dual-hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+  }
+
+  @media (max-width: 768px) {
+    .dual-hero-grid {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
   .grid-4 {
     grid-template-columns: repeat(4, 1fr);
   }
