@@ -33,6 +33,7 @@ const Header = () => {
                 {/* Desktop Nav */}
                 <nav style={{ display: 'none', gap: '30px' }} className="desktop-nav">
                     <NavLink to="/" className="nav-link">Home</NavLink>
+                    <NavLink to="/schosys" className="nav-link" style={{ color: '#2196F3', fontWeight: 'bold' }}>Schosys</NavLink>
                     <NavLink to="/about" className="nav-link">About</NavLink>
                     <NavLink to="/features" className="nav-link">Features</NavLink>
                     <NavLink to="/user-guide" className="nav-link">User Guide</NavLink>
@@ -70,6 +71,7 @@ const Header = () => {
                     zIndex: 999
                 }}>
                     <NavLink to="/" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Home</NavLink>
+                    <NavLink to="/schosys" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee', color: '#2196F3', fontWeight: 'bold' }}>Schosys</NavLink>
                     <NavLink to="/about" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>About</NavLink>
                     <NavLink to="/features" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>Features</NavLink>
                     <NavLink to="/user-guide" className="nav-link" onClick={() => setIsOpen(false)} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>User Guide</NavLink>

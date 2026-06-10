@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ScrollToTop from './components/ScrollToTop';
 import Features from './pages/Features';
+import Schosys from './pages/Schosys';
 
 // Placeholder components for other pages
 import UserGuide from './pages/UserGuide';
@@ -24,6 +25,7 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
+        <Route path="/schosys" element={<Schosys />} />
         <Route path="/about" element={<About />} />
         <Route path="/features" element={<Features />} />
         <Route path="/contact" element={<Contact />} />

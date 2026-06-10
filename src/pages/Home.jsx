@@ -256,6 +256,37 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Schosys Banner Section */}
+            <section style={{ padding: '60px 0', backgroundColor: '#e3f2fd', borderTop: '1px solid #bbdefb', borderBottom: '1px solid #bbdefb' }}>
+                <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                    <div style={{ backgroundColor: '#2196F3', color: 'white', padding: '6px 14px', borderRadius: '50px', fontSize: '0.85rem', fontWeight: '800', marginBottom: '15px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                        New Platform
+                    </div>
+                    <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '15px', color: '#1a1a1a' }}>
+                        Introducing <span style={{ color: '#2196F3' }}>3ms Schosys</span>
+                    </h2>
+                    <p style={{ fontSize: '1.2rem', color: '#555', marginBottom: '30px', maxWidth: '700px', lineHeight: '1.6' }}>
+                        The Next-Gen School Management Solution. An all-in-one digital platform designed for schools, colleges, and training institutes to manage their entire operations efficiently.
+                    </p>
+                    <Link to="/schosys" style={{
+                        backgroundColor: '#2196F3',
+                        color: 'white',
+                        padding: '16px 36px',
+                        borderRadius: '50px',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        fontWeight: '700',
+                        textDecoration: 'none',
+                        fontSize: '1.1rem',
+                        boxShadow: '0 10px 20px rgba(33, 150, 243, 0.3)',
+                        transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                    }}>
+                        <Book size={20} /> Explore Schosys
+                    </Link>
+                </div>
+            </section>
+
             {/* Franchise Opportunity Section */}
             <section style={{ padding: '100px 0', backgroundColor: '#1a1a1a', color: 'white', position: 'relative', overflow: 'hidden' }}>
                 <div className="container">
